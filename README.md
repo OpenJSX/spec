@@ -1,6 +1,6 @@
-<img src="https://raw.githubusercontent.com/jsx-ir/logo/master/jsx.png" alt="JSX-IR logo" width="100">
-
 ## JSX Intermediate Representation (JSX-IR) Specification
+
+<img src="https://raw.githubusercontent.com/jsx-ir/logo/master/jsx.png" alt="JSX-IR logo" width="100">
 
 Main purpose of JSX-IR is to unify transpilation output without external dependencies, i.e. transpile JSX directly to JavaScript literals. This brings in ability to use ```jsx-runtime``` as unified entry point for all **JSX -> Something** transformations via special renderers like ```jsx-to-html``` or ```jsx-to-dom```.
 
