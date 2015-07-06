@@ -1,4 +1,4 @@
-![JSX-IR logo](https://raw.githubusercontent.com/jsx-ir/logo/master/jsx.png =100x)
+<img src="https://raw.githubusercontent.com/jsx-ir/logo/master/jsx.png" alt="JSX-IR logo" width="100">
 
 ## JSX Intermediate Representation (JSX-IR) Specification
 
