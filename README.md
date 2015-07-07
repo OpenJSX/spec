@@ -9,31 +9,25 @@ Main purpose of JSX-IR is to unify transpilation output without external depende
 Output definition is pretty straightforward and small. It's defined in ```TypeScript``` format:
 
 ```typescript
-interface JSXTagDecsriptor {
+declare module JSX {
+  interface Element {
     tag: string;
-    children: JSXChildren;
-    props: {
-        [index: string]: JSXProp;
-    };
+    props: JSX.Props;
+    children: JSX.Children;
+  }
+
+  type Children = Array<JSX.Child | JSX.Children[]>;
+  type Props = {
+    [index: string]: JSX.Property;
+  };
+
+  type Child = JSX.Element | JSX.Any;
+  type Property = JSX.Element | JSX.Any;
+
+  type Any = any;
 }
 ```
 
-```typescript
-var JSXChildren: JSXChild[]|JSXChildren[];
-```
-
-```typescript
-var JSXChild: JSXTagDescriptor|JSXAny;
-```
-
-```typescript
-var JSXProp: JSXTagDescriptor|JSXAny;
-```
-
-```typescript
-var JSXAny: ...;
-```
-
-Here ```JSXAny``` is not defined and there is a reason. It actually might be just ```any``` type, but in really not all types are and will be supported by renders. For example, ```jsx-to-dom``` render might accept ```Element``` or ```Function``` as a ```JSXProp``` or ```JSXChild``` and handle it correctly, but ```jsx-to-html``` might not support it since it requires stringification of such types.
+Here ```JSX.Any``` is not defined and there is a reason. It actually might be just ```any``` type, but in really not all types are and will be supported by renders. For example, ```jsx-to-dom``` render might accept ```Element``` or ```Function``` as a ```JSX.Property``` or ```JSX.Child``` and handle it correctly, but ```jsx-to-html``` might not support it since it requires stringification of such types.
 
 This is exactly why ```JSX-IR``` is started at all. Extensibility.
