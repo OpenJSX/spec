@@ -24,7 +24,7 @@ declare module JSX {
   type Child = JSX.Element | JSX.Any;
   type Property = JSX.Element | JSX.Any;
 
-  type Any = any;
+  type Any = ...; // any
 }
 ```
 
