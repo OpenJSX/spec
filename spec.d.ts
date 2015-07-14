@@ -1,6 +1,6 @@
 declare module JSX {
   interface Element {
-    tag: string;
+    tag: string | [string, Function];
     props: JSX.Props;
     children: JSX.Children;
   }

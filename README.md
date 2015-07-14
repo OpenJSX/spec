@@ -11,7 +11,7 @@ Output definition is pretty straightforward and small. It's defined in ```TypeSc
 ```typescript
 declare module JSX {
   interface Element {
-    tag: string;
+    tag: string | [string, Function];
     props: JSX.Props;
     children: JSX.Children;
   }
@@ -28,6 +28,8 @@ declare module JSX {
 }
 ```
 
-Here ```JSX.Any``` is not defined and there is a reason. It actually might be just ```any``` type, but in really not all types are and will be supported by renders. For example, ```jsx-to-dom``` render might accept ```Element``` or ```Function``` as a ```JSX.Property``` or ```JSX.Child``` and handle it correctly, but ```jsx-to-html``` might not support it since it requires stringification of such types.
+Here ```JSX.Any``` is not defined and there is a reason. It actually might be just ```any``` type, but in reality not all types are and will be supported by renders. For example, ```jsx-to-dom``` render might accept ```Element``` or ```Function``` as a ```JSX.Property``` or ```JSX.Child``` and handle it correctly, but ```jsx-to-html``` might not support it since it requires stringification of such types.
 
 This is exactly why ```JSX-IR``` is started at all. Extensibility.
+
+_Ver. 1.1.0_
