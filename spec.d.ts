@@ -1,7 +1,7 @@
 declare module JSX {
   interface Element {
     tag: string | [string, Function];
-    props: JSX.Props;
+    props: JSX.Props | Array<JSX.Props>;
     children: JSX.Children;
   }
 

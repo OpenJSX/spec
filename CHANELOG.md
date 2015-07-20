@@ -1,4 +1,4 @@
-_Ver. 1.1.0_
+_Ver. 1.2.0_
 
 * ``JSX.Element#props`` now accepts ``JSX.Props | Array<JSX.Props>`` instead of ``JSX.Props``
 _This means that now spread props should be handled by the runtime, instead of JSX-IR by emitter_

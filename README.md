@@ -12,7 +12,7 @@ Output definition is pretty straightforward and small. It's defined in ```TypeSc
 declare module JSX {
   interface Element {
     tag: string | [string, Function];
-    props: JSX.Props;
+    props: JSX.Props | Array<JSX.Props>;
     children: JSX.Children;
   }
 
@@ -32,4 +32,16 @@ Here ```JSX.Any``` is not defined and there is a reason. It actually might be ju
 
 This is exactly why ```JSX-IR``` is started at all. Extensibility.
 
+_Ver. 1.2.0_
+
+* ``JSX.Element#props`` now accepts ``JSX.Props | Array<JSX.Props>`` instead of ``JSX.Props``
+_This means that now spread props should be handled by the runtime, instead of JSX-IR by emitter_
+
 _Ver. 1.1.0_
+
+* ``JSX.Element#tag`` now is ``string | [string, Function]`` instead of ``string``
+_This means that now "scoped" (custom) tags should be handled by the runtime, instead of by JSX-IR emitter_
+
+_Ver. 1.0.0_
+
+Initial
